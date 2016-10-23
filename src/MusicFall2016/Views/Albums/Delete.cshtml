@@ -7,7 +7,7 @@
 <form asp-action="Delete" method="post">
     <input type="hidden" asp-for="AlbumID" value="@Model.AlbumID" />
     <div>Title: @Model.Title</div>
-    <div>Artist: @Model.Artist</div>
+    <div>Artist: @Model.Artist.Name</div>
 
     <button>Delete album</button>
 

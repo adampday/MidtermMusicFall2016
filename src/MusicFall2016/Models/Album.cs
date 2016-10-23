@@ -14,7 +14,7 @@ namespace MusicFall2016.Models
         [Required(ErrorMessage = "Please enter in a title.")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Please type in a price!")]
-        [Range(0.01, 100.0, ErrorMessage = "Invalid input!")]
+        [Range(0.01, 100.0, ErrorMessage = "Price must be in between $.01 and $100!")]
         public decimal Price { get; set; }
 
         // Foreign key

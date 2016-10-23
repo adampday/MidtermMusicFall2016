@@ -5,7 +5,7 @@
 <h3>Update Album:</h3>
 <form asp-action="Update" method="post">
     <input type="hidden" asp-for="AlbumID" value="@Model.AlbumID" />
-    <input type="text" asp-for="Title" value="" />
+    <input type="text" asp-for="Title" value="@Model.Title" />
     <span asp-validation-for="Title"></span>
     <select asp-for="ArtistID" asp-items="ViewBag.ArtistList" id ="ArtistID" name="ArtistID" value="@Model.Artist.Name"></select>
     <span asp-validation-for="ArtistID"></span>

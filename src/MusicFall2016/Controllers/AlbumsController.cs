@@ -55,7 +55,7 @@ namespace MusicFall2016.Controllers
             }
             var album = _context.Albums
                 .Include(a => a.Artist)
-                .Include(a => a.Artist)
+                .Include(a => a.Genre)
                 .SingleOrDefault(a => a.AlbumID == id);
 
             if (album == null)
@@ -76,7 +76,7 @@ namespace MusicFall2016.Controllers
                 ViewBag.GenreList = new SelectList(_context.Genres, "GenreID", "Name");
                 var album = _context.Albums
                     .Include(a => a.Artist)
-                    .Include(a => a.Artist)
+                    .Include(a => a.Genre)
                     .SingleOrDefault(a => a.AlbumID == id);
 
                 if (album == null)
@@ -102,7 +102,7 @@ namespace MusicFall2016.Controllers
                 }
                 var album = _context.Albums
                     .Include(a => a.Artist)
-                    .Include(a => a.Artist)
+                    .Include(a => a.Genre)
                     .SingleOrDefault(a => a.AlbumID == id);
 
                 if (album == null)
