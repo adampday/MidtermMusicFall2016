@@ -1,0 +1,9 @@
+﻿@model MusicFall2016.Models.Genre
+@{
+    ViewData["Title"] = "Genre Information:";
+}
+<h2>Read genre</h2>
+@Model.Name
+<form action="/Genres/Details" method="get">
+    <button>Go back</button>
+</form>

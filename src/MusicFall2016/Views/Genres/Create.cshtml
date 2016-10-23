@@ -1,0 +1,17 @@
+﻿@model MusicFall2016.Models.Genre
+@{
+    ViewData["Title"] = "Create a Genre:";
+}
+<h3>Create Genre</h3>
+
+<form asp-action="Create" method="post">
+    <input type="text" asp-for="Name" value="" />
+    <span asp-validation-for="Name"></span>
+    <button>Add genre</button>
+
+
+</form>
+
+<form action="Details" method="get">
+    <button>Go back</button>
+</form>

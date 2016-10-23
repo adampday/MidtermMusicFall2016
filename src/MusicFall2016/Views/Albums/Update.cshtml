@@ -1,0 +1,24 @@
+﻿@model MusicFall2016.Models.Album
+@{
+    ViewData["Title"] = "Update an Album:";
+}
+<h3>Update Album:</h3>
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="AlbumID" value="@Model.AlbumID" />
+    <input type="text" asp-for="Title" value="" />
+    <span asp-validation-for="Title"></span>
+    <select asp-for="ArtistID" asp-items="ViewBag.ArtistList" id ="ArtistID" name="ArtistID" value="@Model.Artist.Name"></select>
+    <span asp-validation-for="ArtistID"></span>
+    <select asp-for="GenreID" asp-items="ViewBag.GenreList" id="GenreID" name="GenreID" value="@Model.Genre.Name"></select>
+    <span asp-validation-for="GenreID"></span>
+    <input type="text" asp-for="Price" value="@Model.Price" />
+    <span asp-validation-for="Price"></span>
+
+    <button>Update album</button>
+
+
+</form>
+
+<form action="Details" method="get">
+    <button>Go back</button>
+</form>

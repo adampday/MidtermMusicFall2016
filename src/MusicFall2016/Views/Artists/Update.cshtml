@@ -1,0 +1,21 @@
+﻿@model MusicFall2016.Models.Artist
+@{
+    ViewData["Title"] = "Update an Artists:";
+}
+<h3>Update Artist</h3>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="ArtistID" value="@Model.ArtistID" />
+    <input type="text" asp-for="Name" value="@Model.Name" />
+    <span asp-validation-for="Name"></span>
+    <input type="text" asp-for="Bio" value="@Model.Bio" />
+    <span asp-validation-for="Bio"></span>
+
+    <button>Update artist</button>
+
+
+</form>
+
+<form action="Details" method="get">
+    <button>Go back</button>
+</form>

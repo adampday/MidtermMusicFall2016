@@ -1,0 +1,15 @@
+﻿@model MusicFall2016.Models.Album
+@{
+    ViewData["Title"] = "Album Information:";
+}
+<h2>Read album</h2>
+<form action="/" method="post">
+    @Model.Title
+    @Model.Artist.Name
+    @Model.Artist.Bio
+    @Model.Genre.Name
+    @Model.Price
+</form>
+<form action="/Albums/Details" method="get">
+    <button>Go back</button>
+</form>

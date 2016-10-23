@@ -1,0 +1,24 @@
+﻿@model MusicFall2016.Models.Album
+@{
+    ViewData["Title"] = "Create an Album:";
+}
+<h3>Create Album:</h3>
+<form asp-action="Create" method="post">
+    <input type="text" asp-for="Title" value="" />
+    <span asp-validation-for="Title"></span>
+    <select asp-for="ArtistID" asp-items="ViewBag.ArtistList" name="ArtistID"></select>
+    <span asp-validation-for="ArtistID"></span>
+    <select asp-for="GenreID" asp-items="ViewBag.GenreList" name="GenreID"></select>
+    <span asp-validation-for="GenreID"></span>
+    <input type="text" asp-for="Price" value="" />
+    <span asp-validation-for="Price"></span>
+
+    <button>Add album</button>
+
+
+</form>
+
+<form action="Details" method="get">
+    <button>Go back</button>
+</form>
+

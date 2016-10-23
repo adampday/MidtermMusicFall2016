@@ -1,0 +1,20 @@
+﻿@model MusicFall2016.Models.Artist
+@{
+    ViewData["Title"] = "Create an Artists:";
+}
+<h3>Create Artist</h3>
+
+<form asp-action="Create" method="post">
+    <input type="text" asp-for="Name" value="" />
+    <span asp-validation-for="Name"></span>
+    <input type="text" asp-for="Bio" value="" />
+    <span asp-validation-for="Bio"></span>
+
+    <button>Add artist</button>
+
+
+</form>
+
+<form action="Details" method="get">
+    <button>Go back</button>
+</form>
