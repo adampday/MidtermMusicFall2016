@@ -5,11 +5,12 @@
 <h3>Create Artist</h3>
 
 <form asp-action="Create" method="post">
-    <input type="text" asp-for="Name" value="" />
+    <div>
+        <div>Name <p><input type="text" asp-for="Name" value="" /></p></div>
     <span asp-validation-for="Name"></span>
-    <input type="text" asp-for="Bio" value="" />
+    <div>Bio <p><input type="text" asp-for="Bio" value="" /></p></div>
     <span asp-validation-for="Bio"></span>
-
+</div>
     <button>Add artist</button>
 
 
