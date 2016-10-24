@@ -1,7 +1,29 @@
-﻿@model MusicFall2016.Models.Genre
+﻿@model IEnumerable<MusicFall2016.Models.Album>
 @{
     ViewData["Title"] = "Genre";
 }
 <h2>Genre List</h2>
-<h2>Albums in @Model.Name</h2>
+<h2>Albums in @ViewData["Genre"].ToString()</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Albums</th>
+        </tr>
+    </thead>
+
+
+    @foreach (var album in Model)
+    {
+        @if (album.Genre.Name == ViewData["Genre"].ToString())
+        {
+            <tr>
+                <td>
+                    @album.Title
+                </td>
+            </tr>
+
+        }
+    }
+</table>
+
 

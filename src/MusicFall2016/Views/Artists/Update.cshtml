@@ -6,9 +6,9 @@
 
 <form asp-action="Update" method="post">
     <input type="hidden" asp-for="ArtistID" value="@Model.ArtistID" />
-    <input type="text" asp-for="Name" value="@Model.Name" />
+    Name <p><input type="text" asp-for="Name" value="@Model.Name" /></p>
     <span asp-validation-for="Name"></span>
-    <input type="text" asp-for="Bio" value="@Model.Bio" />
+    Bio <p><input type="text" asp-for="Bio" value="@Model.Bio" /></p>
     <span asp-validation-for="Bio"></span>
 
     <button>Update artist</button>
@@ -16,6 +16,6 @@
 
 </form>
 
-<form action="Details" method="get">
+<form action="/Artists/Details" method="get">
     <button>Go back</button>
 </form>
