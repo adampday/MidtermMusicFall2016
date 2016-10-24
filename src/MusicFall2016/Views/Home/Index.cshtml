@@ -5,5 +5,22 @@
 
 <div class="container" id="home-div">
     <h2>Welcome to the music database!</h2>
-    <h2>Select the above tabs to go to the albums, artists, and genres.</h2>
+    <h2>Select the above tabs or the buttons below to go to the albums, artists, and genres.</h2>
 </div>
+
+
+
+<div class="container">
+    <div class="btn-toolbar">
+        <form action="Albums/Details" method="get">
+            <button type="button" id="btnAlbum" class="btn btn-primary">Go to Albums</button>
+        </form>
+        <form action="Artists/Details" method="get">
+            <button type="button" id="btnArtist" class="btn btn-primary">Go to Artists</button>
+        </form>
+        <form action="Genres/Details" method="get">
+            <button type="button" id="btnGenre" class="btn btn-primary">Go to Genres</button>
+        </form>
+    </div>
+</div>
+
