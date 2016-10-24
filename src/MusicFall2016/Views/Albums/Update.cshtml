@@ -5,13 +5,13 @@
 <h3>Update Album:</h3>
 <form asp-action="Update" method="post">
     <input type="hidden" asp-for="AlbumID" value="@Model.AlbumID" />
-    <input type="text" asp-for="Title" value="@Model.Title" />
+    Title <p><input type="text" asp-for="Title" value="@Model.Title" /></p>
     <span asp-validation-for="Title"></span>
-    <select asp-for="ArtistID" asp-items="ViewBag.ArtistList" id ="ArtistID" name="ArtistID" value="@Model.Artist.Name"></select>
+    Artist <p><select asp-for="ArtistID" asp-items="ViewBag.ArtistList" id="ArtistID" name="ArtistID" value="@Model.Artist.Name"></select></p>
     <span asp-validation-for="ArtistID"></span>
-    <select asp-for="GenreID" asp-items="ViewBag.GenreList" id="GenreID" name="GenreID" value="@Model.Genre.Name"></select>
+    Genre <p><select asp-for="GenreID" asp-items="ViewBag.GenreList" id="GenreID" name="GenreID" value="@Model.Genre.Name"></select></p>
     <span asp-validation-for="GenreID"></span>
-    <input type="text" asp-for="Price" value="@Model.Price" />
+    Price <p><input type="text" asp-for="Price" value="@Model.Price" /></p>
     <span asp-validation-for="Price"></span>
 
     <button>Update album</button>

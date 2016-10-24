@@ -5,8 +5,8 @@
 <h3>Update Genre</h3>
 
 <form asp-action="Update" method="post">
-    <input type="hidden" asp-for="GenreID" value="@Model.GenreID" />
-    <input type="text" asp-for="Name" value="@Model.Name" />
+    Name <p><input type="hidden" asp-for="GenreID" value="@Model.GenreID" /></p>
+    Bio <p><input type="text" asp-for="Name" value="@Model.Name" /></p>
     <span asp-validation-for="Name"></span>
 
 </form>
