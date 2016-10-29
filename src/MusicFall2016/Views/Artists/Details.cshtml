@@ -3,9 +3,10 @@
     ViewData["Title"] = "Artists";
 }
 <h2>Details</h2>
-<form action="Create" method="get">
-    <button>Create Artist</button>
-</form>
+<div class="row">
+    <span class="label">Create Artist:</span>
+    <asp:TextBox ID="artist" runat="server"></asp:TextBox><span id="duplicate"></span>
+</div>
 <form action="\Home\Index" method="get">
     <button>Go back to Home Page</button>
 </form>

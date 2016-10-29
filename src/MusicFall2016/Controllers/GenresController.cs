@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MusicFall2016.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Data.SqlClient;
+using System.ComponentModel.DataAnnotations;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,6 +15,8 @@ namespace MusicFall2016.Controllers
     public class GenresController : Controller
     {
         private readonly MusicDbContext _context;
+
+        public string ErrorMessage { get; private set; }
 
         public GenresController(MusicDbContext context)
         {
@@ -41,6 +45,7 @@ namespace MusicFall2016.Controllers
             }
             return View();
         }
+
 
 
         public IActionResult Retrieve(int? id)
