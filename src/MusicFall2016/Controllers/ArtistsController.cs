@@ -37,6 +37,8 @@ namespace MusicFall2016.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Details");
             }
+
+
             return View();
         }
 
