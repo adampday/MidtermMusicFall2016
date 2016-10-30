@@ -179,6 +179,55 @@ namespace MusicFall2016.Controllers
 
         }
     }
-
+    /*
+    public async Task<IActionResult> Index(string sortOrder)
+    {
+        ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "title_asc" : "title_desc";
+        ViewData["ArtistSortParm"] = String.IsNullOrEmpty(sortOrder) ? "artist_asc" : "artist_desc";
+        ViewData["GenreSortParm"] = String.IsNullOrEmpty(sortOrder) ? "genre_asc" : "genre_desc";
+        ViewData["PriceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "price_asc" : "price_desc";
+        ViewData["LikeSortParm"] = String.IsNullOrEmpty(sortOrder) ? "like_asc" : "like_desc";
+        var sort = from s in _context.Albums.Include(a => a.Artist).Include(a => a.Genre)
+                       select s;
+        switch (sortOrder)
+        {
+            case "title_asc":
+                sort = sort.OrderBy(s => s.Title);
+                break;
+            case "title_desc":
+                sort = sort.OrderByDescending(s => s.Title);
+                break;
+            case "artist_asc":
+                sort = sort.OrderBy(s => s.Artist);
+                break;
+            case "artist_desc":
+                sort = sort.OrderByDescending(s => s.Artist);
+                break;
+            case "genre_asc":
+                students = students.OrderBy(s => s.Genre);
+                break;
+            case "genre_desc":
+                sort = sort.OrderByDescending(s => s.Genre);
+                break;
+            case "price_asc":
+                sort = sort.OrderBy(s => s.Price);
+                break;
+            case "price_desc":
+                sort = sort.OrderByDescending(s => s.Price);
+                break;
+            case "like_asc":
+                sort = sort.OrderBy(s => s.Like);
+                break;
+            case "like_desc":
+                sort = sort.OrderByDescending(s => s.Like);
+                break;
+            
+            default:
+                sort = sort.OrderBy(s => s.LastName);
+                break;
+        }
+        return View(await sort.AsNoTracking().ToListAsync());
+    }
+    */
 
 }

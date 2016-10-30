@@ -21,11 +21,21 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Artist</th>
-            <th>Genre</th>
-            <th>Price</th>
-            <th>Like</th>
+            <th>
+            <a asp-action="Details" asp-route-sortOrder="@ViewBag.TitleSortParm">Title</a>
+            </th>
+            <th>
+                <a asp-action="Details" asp-route-sortOrder="@ViewBag.ArtistSortParm">Artist</a>
+            </th>
+            <th>
+                <a asp-action="Details" asp-route-sortOrder="@ViewBag.GenreSortParm">Genre</a>
+            </th>
+            <th>
+                <a asp-action="Details" asp-route-sortOrder="@ViewBag.PriceSortParm">Price</a>
+            </th>
+            <th>
+                <a asp-action="Details" asp-route-sortOrder="@ViewBag.LikeSortParm">Like</a>
+            </th>
         </tr>
     </thead>
     @foreach (var album in Model)
