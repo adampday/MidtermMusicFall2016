@@ -131,7 +131,7 @@ namespace MusicFall2016.Controllers
                         .Include(a => a.Artist)
                         .SingleOrDefault(a => a.AlbumID == id);
 
-                    if (album == null)
+                    if (album == null)f
                     {
                         return NotFound();
                     }
