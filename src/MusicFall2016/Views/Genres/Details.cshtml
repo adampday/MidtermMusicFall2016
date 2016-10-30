@@ -3,10 +3,13 @@
     ViewData["Title"] = "Genre";
 }
 <h2>Details</h2>
-<div class="row">
-    <span class="label">Create Genre:</span>
-    <asp:TextBox ID="genre" runat="server"></asp:TextBox><span id="duplicate"></span>
-</div>
+<form action="Create" method="get">
+    <div>
+        <button id="createArtist">
+            Create Genre
+        </button>
+    </div>
+</form>
 <form action="\Home\Index" method="get">
     <button>Go back to Home Page</button>
 </form>

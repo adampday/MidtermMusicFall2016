@@ -4,6 +4,7 @@ using MusicFall2016.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,10 +19,30 @@ namespace MusicFall2016.Controllers
             _context = context;
         }
 
-        public IActionResult Details()
+        public IActionResult Details(String searchString)
         {
+            if (searchString != null)
+            {
+                var albumsSearch = from m in _context.Albums.Include(a => a.Artist).Include(a => a.Genre)
+                                   select m;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    albumsSearch = albumsSearch.Where(s => s.Title.Contains(searchString)); //return album
+                    //albumsSearch = albumsSearch.Where(s => s.Artist.Name.Contains(searchString)); //return artist
+                    //albumsSearch = albumsSearch.Where(s => s.Genre.Name.Contains(searchString)); //return genre
+                }
+
+                return View(albumsSearch.ToList());
+            }
+            else { 
+
             var albums = _context.Albums.Include(a => a.Artist).Include(a => a.Genre).ToList();
+            
+
             return View(albums);
+            }
+
         }
 
 
@@ -138,5 +159,26 @@ namespace MusicFall2016.Controllers
                     return View(album);
                 }
         */
+        public IActionResult Like(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var album = _context.Albums
+                        .Include(a => a.Artist)
+                        .Include(a => a.Genre)
+                        .SingleOrDefault(a => a.AlbumID == id);
+            if (album == null)
+            {
+                return NotFound();
+            }
+            album.Like = album.Like + 1;
+            _context.SaveChanges();
+            return RedirectToAction("Details");
+
+        }
     }
+
+
 }

@@ -12,7 +12,7 @@
 <form asp-action="Details" method="get">
     <div class="form-actions no-color">
         <p>
-            Search: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            Search albums: <input type="text" name="searchString" value="@ViewData["currentFilter"]" />
             <input type="submit" value="Search" class="btn btn-default" />      
         </p>
     </div>
@@ -25,6 +25,7 @@
             <th>Artist</th>
             <th>Genre</th>
             <th>Price</th>
+            <th>Like</th>
         </tr>
     </thead>
     @foreach (var album in Model)
@@ -34,8 +35,10 @@
             <td>@album.Artist.Name</td>
             <td>@album.Genre.Name</td>
             <td>@album.Price</td>
+            <td>@album.Like</td>
 
             <td>
+                <a asp-action="Like" asp-route-id="@album.AlbumID">Like</a>
                 <a asp-action="Update" asp-route-id="@album.AlbumID">Edit</a>
                 <a asp-action="Retrieve" asp-route-id="@album.AlbumID">Details</a>
                 <a asp-action="Delete" asp-route-id="@album.AlbumID">Delete</a>

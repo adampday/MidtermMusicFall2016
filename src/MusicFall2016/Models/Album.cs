@@ -17,6 +17,7 @@ namespace MusicFall2016.Models
         [Range(0.01, 100.0, ErrorMessage = "Price must be in between $.01 and $100!")]
         public decimal Price { get; set; }
 
+        public int Like { get; set; }
         // Foreign key
         public int ArtistID { get; set; }
         // Navigation property

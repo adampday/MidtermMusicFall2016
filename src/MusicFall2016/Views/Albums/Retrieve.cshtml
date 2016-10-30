@@ -9,6 +9,11 @@
     Bio: @Model.Artist.Bio<br />
     Genre: @Model.Genre.Name<br />
     Price: @Model.Price<br />
+    Like: @Model.Like<br />
+</form>
+
+<form asp-action="Like" asp-route-id="@Model.AlbumID">
+    <button>Like</button>
 </form>
 <form action="/Albums/Details" method="get">
     <button>Go back</button>
