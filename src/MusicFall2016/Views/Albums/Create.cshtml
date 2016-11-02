@@ -9,8 +9,10 @@
         <span asp-validation-for="Title"></span>
         <div>Artist <p><select asp-for="ArtistID" asp-items="ViewBag.ArtistList" name="ArtistID" class="btn-lg"></select></p></div>
     <span asp-validation-for="ArtistID"></span>
+        <div>Or Add new Artist <p><input type="text" name="addNewArtist" asp-for="Artist.Name" value="" /></p></div>
     <div>Genre <p><select asp-for="GenreID" asp-items="ViewBag.GenreList" name="GenreID" class="btn-lg"></select></p></div>
         <span asp-validation-for="GenreID"></span>
+        <div>Or Add new Genre <p><input type="text" name="addNewGenre" asp-for="Genre.Name" value="" /></p></div>
     <div>Price <p><input type="text" asp-for="Price" value="" /></p></div>
         <span asp-validation-for="Price"></span>
     </div>
