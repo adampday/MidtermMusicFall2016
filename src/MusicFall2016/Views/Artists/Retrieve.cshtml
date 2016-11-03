@@ -3,8 +3,8 @@
     ViewData["Title"] = "Artist Information:";
 }
 <h2>Read album</h2>
-@Model.Name
-@Model.Bio
+<h5>Name: @Model.Name</h5>
+<h5>Bio: @Model.Bio</h5>
 <form action="/Albums/Details" method="get">
     <button>Go back</button>
 </form>

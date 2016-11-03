@@ -5,13 +5,13 @@
 <h3>Update Genre</h3>
 
 <form asp-action="Update" method="post">
-    Name <p><input type="hidden" asp-for="GenreID" value="@Model.GenreID" /></p>
+    Name <p><input type="text" asp-for="GenreID" value="@Model.GenreID" /></p>
     Bio <p><input type="text" asp-for="Name" value="@Model.Name" /></p>
     <span asp-validation-for="Name"></span>
-
+    <button>Add genre</button>
 </form>
 
-<button>Add genre</button>
+
 <form action="/Genres/Details" method="get">
     <button>Go back</button>
 </form>
