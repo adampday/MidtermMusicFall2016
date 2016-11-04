@@ -15,6 +15,11 @@
 <form asp-action="Like" asp-route-id="@Model.AlbumID">
     <button>Like</button>
 </form>
+
+<form asp-action="Update" asp-route-id="@Model.AlbumID" method="get">
+    <button>Go to Update Album</button>
+</form>
+
 <form action="/Albums/Details" method="get">
     <button>Go back</button>
 </form>

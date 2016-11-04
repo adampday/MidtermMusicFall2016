@@ -5,6 +5,11 @@
 <h2>Read artist</h2>
 <h5>Name: @Model.Name</h5>
 <h5>Bio: @Model.Bio</h5>
+
+<form asp-action="Update" asp-route-id="@Model.ArtistID" method="get">
+    <button>Go to Update Artist</button>
+</form>
+
 <form asp-action="Details" method="get">
     <button>Go back</button>
 </form>
