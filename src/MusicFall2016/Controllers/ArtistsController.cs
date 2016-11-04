@@ -28,6 +28,7 @@ namespace MusicFall2016.Controllers
         {
             return View();
         }
+        //new one
         [HttpPost]
         public IActionResult Create(Artist art)
         {
