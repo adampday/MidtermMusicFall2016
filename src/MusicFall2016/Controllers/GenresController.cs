@@ -91,14 +91,7 @@ namespace MusicFall2016.Controllers
         [HttpPost]
         public IActionResult Update(Genre genre)
         {
-            foreach (Genre test in _context.Genres)
-            {
-                var name = test.Name;
-                if (name == genre.Name)
-                {
-                    return RedirectToAction("Update");
-                }
-            }
+          
             _context.Genres.Update(genre);
             _context.SaveChanges();
             return RedirectToAction("Details");

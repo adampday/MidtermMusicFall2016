@@ -2,9 +2,9 @@
 @{
     ViewData["Title"] = "Artist Information:";
 }
-<h2>Read album</h2>
-@Model.Name
-@Model.Bio
-<form action="/Albums/Details" method="get">
+<h2>Read artist</h2>
+<h5>Name: @Model.Name</h5>
+<h5>Bio: @Model.Bio</h5>
+<form asp-action="Details" method="get">
     <button>Go back</button>
 </form>

@@ -18,6 +18,7 @@ namespace MusicFall2016.Controllers
             _context = context;
         }
         // GET: /<controller>/
+        //new change
         public IActionResult Details()
         {
             var artist = _context.Artists.ToList();
@@ -86,14 +87,7 @@ namespace MusicFall2016.Controllers
         [HttpPost]
         public IActionResult Update(Artist artist)
         {
-            foreach (Artist test in _context.Artists)
-            {
-                var name = test.Name;
-                if (name == artist.Name)
-                {
-                    return RedirectToAction("Update");
-                }
-            }
+           
             _context.Artists.Update(artist);
             _context.SaveChanges();
             return RedirectToAction("Details");
