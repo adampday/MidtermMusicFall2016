@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-// new one please
+
 namespace MusicFall2016.Controllers
 {
     public class GenresController : Controller
