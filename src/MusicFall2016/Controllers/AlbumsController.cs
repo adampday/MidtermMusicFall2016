@@ -263,6 +263,7 @@ namespace MusicFall2016.Controllers
                     return View(album);
                 }
         */
+
         public IActionResult Like(int? id)
         {
             if (id == null)
