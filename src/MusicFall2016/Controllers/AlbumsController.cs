@@ -28,58 +28,51 @@ namespace MusicFall2016.Controllers
             ViewData["GenreSortParm"] = String.IsNullOrEmpty(sortOrder) ? "genre_asc" : "genre_desc";
             ViewData["PriceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "price_asc" : "price_desc";
             ViewData["LikeSortParm"] = String.IsNullOrEmpty(sortOrder) ? "like_asc" : "like_desc";
-            var album = from s in _context.Albums.Include(a => a.Artist).Include(a => a.Genre)
-                        select s;
+            var album = from a in _context.Albums.Include(a => a.Artist).Include(a => a.Genre)
+                        select a;
             switch (sortOrder)
             {
                 case "title_asc":
-                    album = album.OrderBy(s => s.Title);
+                    album = album.OrderBy(a => a.Title);
                     break;
                 case "title_desc":
-                    album = album.OrderByDescending(s => s.Title);
-                    sortOrder = "";
+                    album = album.OrderByDescending(a => a.Title);                   
                     break;
                 case "artist_asc":
-                    album = album.OrderBy(s => s.Artist.Name);
+                    album = album.OrderBy(a => a.Artist.Name);
                     break;
                 case "artist_desc":
-                    album = album.OrderByDescending(s => s.Artist.Name);
-                    sortOrder = "";
+                    album = album.OrderByDescending(a => a.Artist.Name);                  
                     break;
                 case "genre_asc":
-                    album = album.OrderBy(s => s.Genre.Name);
+                    album = album.OrderBy(a => a.Genre.Name);
                     break;
                 case "genre_desc":
-                    album = album.OrderByDescending(s => s.Genre.Name);
-                    sortOrder = "";
+                    album = album.OrderByDescending(a => a.Genre.Name);
                     break;
                 case "price_asc":
-                    album = album.OrderBy(s => s.Price);
+                    album = album.OrderBy(a => a.Price);
                     break;
                 case "price_desc":
-                    album = album.OrderByDescending(s => s.Price);
-                    sortOrder = "";
+                    album = album.OrderByDescending(a => a.Price);                   
                     break;
                 case "like_asc":
-                    album = album.OrderBy(s => s.Like);
+                    album = album.OrderBy(a => a.Like);
                     break;
                 case "like_desc":
-                    album = album.OrderByDescending(s => s.Like);
-                    sortOrder = "";
+                    album = album.OrderByDescending(a => a.Like);                    
                     break;
+                
+            }
 
-                default:
-                    album = album.OrderBy(s => s.Title);
-                    break;
-            }
-            if (sortOrder == "")
-            {
-                ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "title_asc" : "title_desc";
-                ViewData["ArtistSortParm"] = String.IsNullOrEmpty(sortOrder) ? "artist_asc" : "artist_desc";
-                ViewData["GenreSortParm"] = String.IsNullOrEmpty(sortOrder) ? "genre_asc" : "genre_desc";
-                ViewData["PriceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "price_asc" : "price_desc";
-                ViewData["LikeSortParm"] = String.IsNullOrEmpty(sortOrder) ? "like_asc" : "like_desc";
-            }
+            //if (sortOrder == "")
+            //{
+            //    ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "title_asc" : "title_desc";
+            //    ViewData["ArtistSortParm"] = String.IsNullOrEmpty(sortOrder) ? "artist_asc" : "artist_desc";
+            //    ViewData["GenreSortParm"] = String.IsNullOrEmpty(sortOrder) ? "genre_asc" : "genre_desc";
+            //    ViewData["PriceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "price_asc" : "price_desc";
+            //    ViewData["LikeSortParm"] = String.IsNullOrEmpty(sortOrder) ? "like_asc" : "like_desc";
+            //}
 
             if (searchString != null)
             {
@@ -278,7 +271,7 @@ namespace MusicFall2016.Controllers
             {
                 return NotFound();
             }
-            album.Like = album.Like + 1;
+            album.Like += 1;
             _context.SaveChanges();
             return RedirectToAction("Details");
 

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MusicFall2016.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MusicFall2016
 {
@@ -38,10 +39,26 @@ namespace MusicFall2016
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddDbContext<MusicDbContext>(options => 
+            services.AddDbContext<MusicDbContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+            .AddEntityFrameworkStores<MusicDbContext>()
+            .AddDefaultTokenProviders();
+
             services.AddMvc();
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = false;
+            });
         }
+
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -72,5 +89,6 @@ namespace MusicFall2016
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
     }
 }
