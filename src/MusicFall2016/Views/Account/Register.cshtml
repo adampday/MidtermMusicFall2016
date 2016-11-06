@@ -1,12 +1,18 @@
-﻿@model MusicFall2016.Models.Artist
+﻿@model MusicFall2016.Models.ApplicationUser
 @{
-    ViewData["Title"] = "Update an Artists:";
+    ViewData["Title"] = "Account Registration";
 }
-<h3>Update Artist</h3>
+<h3>Register a New Account</h3>
 
-<form asp-action="Update" method="post">
-    <input type="hidden" asp-for="ArtistID" value="@Model.ArtistID" />
-    Name <p><input type="text" asp-for="Name" value="@Model.Name" /></p>
-    <span asp-validation-for="Name"></span>
-    Bio <p><input type="text" asp-for="Bio" value="@Model.Bio" /></p>
-    <span asp-validation-for="Bio"></span>
+<form asp-action="Register" method="post">
+    Email <p><input type="text" asp-for="Email" value="@Model.Email" /></p>
+    <span asp-validation-for="Email"></span>
+    User Name <p><input type="text" asp-for="UserName" value="@Model.UserName" /></p>
+    <span asp-validation-for="UserName"></span>
+    Confirm Email <p><input type="text" asp-for="confirmEmail" value="@Model.confirmEmail" /></p>
+    <span asp-validation-for="confirmEmail"></span>
+
+    <button>Register your account</button>
+
+
+</form>
