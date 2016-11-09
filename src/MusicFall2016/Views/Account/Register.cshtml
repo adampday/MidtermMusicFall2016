@@ -1,4 +1,4 @@
-﻿@model MusicFall2016.Models.ApplicationUser
+﻿@model MusicFall2016.Models.RegisterViewModel
 @{
     ViewData["Title"] = "Account Registration";
 }
@@ -7,12 +7,12 @@
 <form asp-action="Register" method="post">
     Email <p><input type="text" asp-for="Email" value="@Model.Email" /></p>
     <span asp-validation-for="Email"></span>
-    User Name <p><input type="text" asp-for="UserName" value="@Model.UserName" /></p>
-    <span asp-validation-for="UserName"></span>
-    Confirm Email <p><input type="text" asp-for="confirmEmail" value="@Model.confirmEmail" /></p>
-    <span asp-validation-for="confirmEmail"></span>
+    Password <p><input type="text" asp-for="Password" value="@Model.Password" /></p>
+    <span asp-validation-for="Password"></span>
+    Confirm Password <p><input type="text" asp-for="confirmPassword" value="@Model.confirmPassword" /></p>
+    <span asp-validation-for="confirmPassword"></span>
 
-    <button>Register your account</button>
+    <button class="button" >Register your account</button>
 
 
 </form>
