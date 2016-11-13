@@ -11,11 +11,5 @@ namespace MusicFall2016.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public string Email { get; internal set; }
-        public string UserName { get; internal set; }
-        public string confirmEmail { get; set; }
-
-
-
     }
 }

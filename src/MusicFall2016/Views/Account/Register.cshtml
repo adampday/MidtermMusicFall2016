@@ -5,11 +5,11 @@
 <h3>Register a New Account</h3>
 
 <form asp-action="Register" method="post">
-    Email <p><input type="text" asp-for="Email" value="@Model.Email" /></p>
+    Email <p><input type="text" asp-for="Email" /></p>
     <span asp-validation-for="Email"></span>
-    Password <p><input type="text" asp-for="Password" value="@Model.Password" /></p>
+    Password <p><input type="password" asp-for="Password" /></p>
     <span asp-validation-for="Password"></span>
-    Confirm Password <p><input type="text" asp-for="confirmPassword" value="@Model.confirmPassword" /></p>
+    Confirm Password <p><input type="password" asp-for="confirmPassword" /></p>
     <span asp-validation-for="confirmPassword"></span>
 
     <button class="button" id="register">Register your account</button>

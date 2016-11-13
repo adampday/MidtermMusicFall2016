@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using MusicFall2016.Models;
 using Microsoft.AspNetCore.Authorization;
-using MusicFall2016.ViewModels;
-using Microsoft.AspNetCore.Http.Authentication;
 using System;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -25,6 +23,10 @@ public class AccountController : Controller
         _signInManager = signInManager;
     }
 
+    public IActionResult Register()
+    {
+        return View();
+    }
     [HttpPost]
     [AllowAnonymous]
     [ValidateAntiForgeryToken]
@@ -51,6 +53,12 @@ public class AccountController : Controller
         // If we got this far, something failed, redisplay form
         return View(model);
     }
+
+    public IActionResult Login()
+    {
+        return View();
+    }
+
     [HttpPost]
     [AllowAnonymous]
     [ValidateAntiForgeryToken]
@@ -78,6 +86,7 @@ public class AccountController : Controller
         // If we got this far, something failed, redisplay form
         return View(model);
     }
+
 
     private IActionResult RedirectToLocal(string returnUrl)
     {

@@ -80,6 +80,8 @@ namespace MusicFall2016
 
             app.UseApplicationInsightsExceptionTelemetry();
 
+            app.UseIdentity();
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
