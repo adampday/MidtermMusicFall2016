@@ -27,6 +27,7 @@ public class AccountController : Controller
     {
         return View();
     }
+
     [HttpPost]
     [AllowAnonymous]
     [ValidateAntiForgeryToken]

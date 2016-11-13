@@ -36,10 +36,12 @@
                     <li><a asp-area="" asp-controller="Artists" asp-action="Details">Artists</a></li>
                     <li><a asp-area="" asp-controller="Genres" asp-action="Details">Genres</a></li>
                 </ul>
+                
                 <ul class="nav navbar-nav navbar-right">
                     <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li> 
                     <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>              
                 </ul>
+                
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
