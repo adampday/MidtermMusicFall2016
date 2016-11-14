@@ -12,6 +12,12 @@ namespace MusicFall2016.Models
         public MusicDbContext(DbContextOptions<MusicDbContext> options) 
             : base(options)
         {
+
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Album> Albums { get; set; }
