@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using MusicFall2016.Models;
 using Microsoft.AspNetCore.Authorization;
 using System;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -74,7 +75,13 @@ public class AccountController : Controller
             if (result.Succeeded)
             {
             //    _logger.LogInformation(1, "User logged in.");
-                return Redirect(returnUrl);
+                
+                if (String.IsNullOrEmpty(returnUrl))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                    return Redirect(returnUrl);
             }    
             
             else
