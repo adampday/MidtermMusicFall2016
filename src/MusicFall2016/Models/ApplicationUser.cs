@@ -12,8 +12,6 @@ namespace MusicFall2016.Models
     public class ApplicationUser : IdentityUser
     {
         public DateTime dateJoined { get; set; }
-        // Primary key
-        //public int userID { get; set; }
     }
 
 }

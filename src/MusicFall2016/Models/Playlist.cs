@@ -13,7 +13,6 @@ namespace MusicFall2016.Models
         // Primary key
         public int playListID { get; set; }
         public string name { get; set; }
-        public string owner { get; set; }
 
         // Foreign key
         public int UserID { get; set; }
