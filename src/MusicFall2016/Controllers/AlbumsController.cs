@@ -180,6 +180,25 @@ namespace MusicFall2016.Controllers
             {
                 return NotFound();
             }
+
+            var recommended = _context.Albums
+                .Include(a => a.Artist)
+                .Include(a => a.Genre).ToList();
+            String albumString = "";
+            var count = 0;
+
+            foreach(var albums in recommended)
+            {
+                if (albums.Like >= 5 && count < 5 && albums.AlbumID != album.AlbumID)
+                {
+                    count += 1;
+                    albumString += albums.Title + " ";
+                }
+            }
+
+            ViewData["readAlbum"] = albumString;
+
+
             return View(album);
         }
 

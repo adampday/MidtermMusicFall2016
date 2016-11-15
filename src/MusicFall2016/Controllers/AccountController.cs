@@ -95,6 +95,16 @@ public class AccountController : Controller
         return View(model);
     }
 
+    [Authorize]
+    public IActionResult Playlist()
+    {
+        return View();
+    }
+    [HttpPost]
+    public IActionResult PlayList(Album album)
+    {
+        return View();
+    }
 
     private IActionResult RedirectToLocal(string returnUrl)
     {

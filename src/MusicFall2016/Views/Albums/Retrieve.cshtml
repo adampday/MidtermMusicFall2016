@@ -10,6 +10,7 @@
     Genre: @Model.Genre.Name<br />
     Price: @Model.Price<br />
     Like: @Model.Like<br />
+    Recommendations: @ViewData["readAlbum"]
 </form>
 
 <form asp-action="Like" asp-route-id="@Model.AlbumID">

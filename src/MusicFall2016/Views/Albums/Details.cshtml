@@ -52,6 +52,7 @@
                 <a asp-action="Update" asp-route-id="@album.AlbumID">Edit</a>
                 <a asp-action="Retrieve" asp-route-id="@album.AlbumID">Details</a>
                 <a asp-action="Delete" asp-route-id="@album.AlbumID">Delete</a>
+                <a asp-controller="Account" asp-action="Playlist" asp-route-id="@album.AlbumID">Add to playlists</a>
             </td>
         </tr>
 
