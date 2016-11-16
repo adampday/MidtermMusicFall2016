@@ -12,7 +12,7 @@ namespace MusicFall2016.Migrations
                 name: "UserID",
                 table: "Playlists");
         }
-// new change
+// new changed
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
