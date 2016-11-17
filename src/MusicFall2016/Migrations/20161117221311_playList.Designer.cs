@@ -8,8 +8,8 @@ using MusicFall2016.Models;
 namespace MusicFall2016.Migrations
 {
     [DbContext(typeof(MusicDbContext))]
-    [Migration("20161116181203_myupdate2")]
-    partial class myupdate2
+    [Migration("20161117221311_playList")]
+    partial class playList
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -234,8 +234,6 @@ namespace MusicFall2016.Migrations
                 {
                     b.Property<int>("playListID")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int>("UserID");
 
                     b.Property<string>("name");
 
