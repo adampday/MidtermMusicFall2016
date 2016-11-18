@@ -8,7 +8,7 @@ using System;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
+// new change
 public class AccountController : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager;
