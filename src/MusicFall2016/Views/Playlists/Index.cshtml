@@ -3,3 +3,14 @@
     ViewData["Title"] = "Playlists";
 }
 
+<h2>Playlists for: @User.Identity.Name (member since @ViewBag.User.dateJoined)</h2>
+
+
+<button href="/Playlists/Create">Add Playlist</button>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+    </tr>
+</table>

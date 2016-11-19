@@ -6,6 +6,8 @@ using MusicFall2016.Models;
 using Microsoft.AspNetCore.Authorization;
 using System;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static Microsoft.AspNetCore.Hosting.Internal.HostingApplication;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 // new change
@@ -36,7 +38,7 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email, dateJoined = DateTime.Now };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
@@ -55,6 +57,7 @@ public class AccountController : Controller
         // If we got this far, something failed, redisplay form
         return View(model);
     }
+
 
     public IActionResult Login()
     {
@@ -95,16 +98,9 @@ public class AccountController : Controller
         return View(model);
     }
 
-    [Authorize]
-    public IActionResult Playlist()
-    {
-        return View();
-    }
-    [HttpPost]
-    public IActionResult PlayList(Album album)
-    {
-        return View();
-    }
+
+    // new change
+
 
     private IActionResult RedirectToLocal(string returnUrl)
     {
@@ -118,4 +114,7 @@ public class AccountController : Controller
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index","Home");
     }
+
+
+
 }
