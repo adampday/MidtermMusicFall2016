@@ -19,8 +19,6 @@ namespace MusicFall2016.Controllers
             _context = context;
         }
 
-
-
         public async Task<IActionResult> Details(String searchString, String sortOrder)
         {
             ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "title_asc" : "title_desc";
@@ -296,9 +294,5 @@ namespace MusicFall2016.Controllers
 
         }
     }
-    
-    
-    
-    
 
 }

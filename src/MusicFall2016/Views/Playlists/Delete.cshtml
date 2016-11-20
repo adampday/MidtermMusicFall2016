@@ -1,0 +1,16 @@
+﻿@model MusicFall2016.Models.Playlist
+@{
+    ViewData["Title"] = "Delete a Playlist:";
+}
+<h2>Delete Playlist:</h2>
+
+<h2>Delete an Album</h2>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="playListID" value="@Model.playListID" />
+    <div>Are you sure you want to delete @Model.playListID ? </div>
+    <button>Delete playlist</button>
+</form>
+
+<form action="Index" method="get">
+    <button>Go back</button>
+</form>

@@ -1,0 +1,15 @@
+﻿@model MusicFall2016.Models.Playlist
+@{
+    ViewData["Title"] = "Update a Playlist:";
+}
+<h2>Update a Playlist:</h2>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="playListID" value="@Model.playListID" />
+    <div>Update playlist @Model.playListID </div>
+    <button>Delete playlist</button>
+</form>
+
+<form action="Details" method="get">
+    <button>Go back</button>
+</form>

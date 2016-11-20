@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Identity;
 using MusicFall2016.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,61 +20,92 @@ namespace MusicFall2016.Controllers
         private readonly MusicDbContext _context;
 
 
-        public PlaylistsController(MusicDbContext context, 
+        public PlaylistsController(MusicDbContext context,
             UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;
         }
+
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.User = _userManager.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);
-            return View();
-     
-        }
+            var user = _userManager.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);
+            ViewBag.User = user;
+            var playlists = _context.Playlists.Where(p => p.User == user).ToList();
 
-        [HttpPost]
-        public IActionResult Playlists(Album album)
-        {
-            var user = User.Identity.Name;
-            if (user == null)
-            {
-                return NotFound();
-            }
-            var playlist = _context.Playlists.SingleOrDefault(p => p.user.UserName == user);
-            var list = new SelectList(_context.Albums, "AlbumID", "Title");
-            ViewBag.AlbumList = list;
-            return View("Playlists");  
-        }
+            return View(playlists);
 
-        [Authorize]
-        public IActionResult Playlists()
-        {
-            var user = User.Identity.Name;
-            if (user == null)
-            {
-                return NotFound();
-            }
-            var playlist = _context.Playlists.SingleOrDefault(p => p.user.UserName == user);
-            if (playlist == null)
-            {
-                playlist = new Playlist();
-                playlist.user.UserName = user;
-                _context.Playlists.Add(playlist);
-                _context.SaveChanges();
-                playlist = _context.Playlists.SingleOrDefault(p => p.user.UserName == user);
-            }
-            var list = new SelectList(_context.Albums, "AlbumID", "Title");
-            ViewBag.AlbumList = list;
-
-                return View(playlist);
         }
 
         public IActionResult Create()
         {
-            ViewBag.AlbumList = new SelectList(_context.Albums, "AlbumID", "Title");
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Playlist playlist)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(playlist);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public IActionResult Update(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var playlist = _context.Playlists
+                .SingleOrDefault(p => p.playListID == id);
+
+            if (playlist == null)
+            {
+                return NotFound();
+            }
+            return View(playlist);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Playlist playlist)
+        {
+            _context.Playlists.Update(playlist);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var playlist = _context.Playlists
+                    .Include(p => p.name)
+                    .Include(p => p.User)
+                    .SingleOrDefault(p => p.playListID == id);
+
+                if (playlist == null)
+                {
+                    return NotFound();
+                }
+                return View(playlist);
+            }
+        }
+        [HttpPost]
+        public IActionResult Delete(Playlist playlist)
+        {
+            _context.Playlists.Remove(playlist);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

@@ -84,6 +84,7 @@ namespace MusicFall2016.Controllers
             }
             return View(artist);
         }
+
         [HttpPost]
         public IActionResult Update(Artist artist)
         {
