@@ -13,8 +13,8 @@
     <tr>
  <td>@playlist.name</td>
         <td>
-            <a class="btn btn-sm btn-default" asp-route-id="@playlist.playListID">Rename</a>
-            <a class="btn btn-sm btn-default" asp-route-id="@playlist.playListID">Delete</a>
+            <a class="btn btn-sm btn-default" asp-action="Update" asp-route-id="@playlist.playListID">Rename</a>
+            <a class="btn btn-sm btn-default" asp-action="Delete" asp-route-id="@playlist.playListID">Delete</a>
         </td>
     </tr>
    }

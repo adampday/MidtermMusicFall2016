@@ -5,16 +5,7 @@
 <h2>Create Playlist:</h2>
 
 <form asp-action="Create" method="post">
-    <div>
-        <div>Create a playlist<p><input type="text" asp-for="name" /></p></div>
-        <span asp-validation-for="name"></span>
-    </div>
-    <div>
-        <button>Add playlist</button>
-    </div>
-
-</form>
-
-<form action="\Playlists\Index" method="get">
-    <button>Go back</button>
+    <input type="hidden" asp-for="playListID" />
+    <input type="text" asp-for="name" />
+    <input type="submit" asp-action="Create" class="btn btn-sm btn-default" value="Create">
 </form>
