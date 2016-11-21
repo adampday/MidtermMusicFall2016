@@ -15,7 +15,9 @@
 </form>
 
 <h3>You might also like these albums based on the number of likes:</h3>
-<ul span class="glyphicon glyphicon-asterisk"> @ViewData["readAlbum"]</ul><br />
+
+
+<ul span class="glyphicon glyphicon-asterisk"> @ViewData["readAlbum"]</ul>
 
 <form asp-action="Like" asp-route-id="@Model.AlbumID">
     <br />

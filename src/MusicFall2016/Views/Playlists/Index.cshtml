@@ -3,7 +3,7 @@
     ViewData["Title"] = "Playlists";
 }
 
-<h2>Playlists for: @User.Identity.Name (member since @ViewBag.User.dateJoined)</h2>
+<h2>Playlists for: @User.Identity.Name (member since @ViewBag.User.dateJoined.ToString("MMM dd, yyyy"))</h2>
 
     <a class="btn btn-sm btn-default" asp-action="Create">Create Playlist</a>
 

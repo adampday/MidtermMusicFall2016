@@ -5,7 +5,10 @@
 <h2>Create Playlist:</h2>
 
 <form asp-action="Create" method="post">
-    <input type="hidden" asp-for="playListID" />
     <input type="text" asp-for="name" />
-    <input type="submit" asp-action="Create" class="btn btn-sm btn-default" value="Create">
+    <button type="submit" class="btn btn-sm btn-default">Create</button> 
+</form>
+
+<form action="/Playlists/Index" method="get">
+    <button class="btn btn-sm btn-default">Go back</button>
 </form>

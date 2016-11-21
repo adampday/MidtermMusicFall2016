@@ -48,11 +48,13 @@ namespace MusicFall2016.Controllers
         {
             if (ModelState.IsValid)
             {
+                var user = _userManager.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);
+                playlist.User = user;
                 _context.Add(playlist);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View();
+            return View(playlist);
         }
 
         public IActionResult Update(int? id)
@@ -89,8 +91,7 @@ namespace MusicFall2016.Controllers
                 }
 
                 var playlist = _context.Playlists
-                    .Include(p => p.name)
-                    .Include(p => p.User)
+                    
                     .SingleOrDefault(p => p.playListID == id);
 
                 if (playlist == null)

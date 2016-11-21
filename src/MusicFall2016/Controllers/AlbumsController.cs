@@ -165,14 +165,16 @@ namespace MusicFall2016.Controllers
 
         public IActionResult Retrieve(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
             var album = _context.Albums
                 .Include(a => a.Artist)
                 .Include(a => a.Genre)
                 .SingleOrDefault(a => a.AlbumID == id);
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            
 
             if (album == null)
             {
