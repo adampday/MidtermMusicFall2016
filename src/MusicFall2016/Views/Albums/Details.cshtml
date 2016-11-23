@@ -52,7 +52,7 @@
                 <a class="btn btn-sm btn-default" asp-action="Update" asp-route-id="@album.AlbumID">Edit</a>
                 <a class="btn btn-sm btn-default" asp-action="Retrieve" asp-route-id="@album.AlbumID">Details</a>
                 <a class="btn btn-sm btn-default" asp-action="Delete" asp-route-id="@album.AlbumID">Delete</a>
-                <a class="btn btn-sm btn-default" asp-controller="Playlists" asp-action="Index" asp-route-id="@album.AlbumID">Add to playlists</a>
+                <a class="btn btn-sm btn-default" asp-controller="Playlists" asp-action="Add" asp-route-id="@album.AlbumID">Add to playlists</a>
             </td>
         </tr>
     }

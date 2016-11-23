@@ -14,7 +14,7 @@ namespace MusicFall2016.Models
     {
         // Primary key
         public int playListID { get; set; }
-        [Required(ErrorMessage="Name is required.")]
+        
         public string name { get; set; }
 
         //// Foreign key

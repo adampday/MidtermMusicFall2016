@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using MusicFall2016.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using static MusicFall2016.Models.MusicDbContext;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -36,6 +37,26 @@ namespace MusicFall2016.Controllers
 
             return View(playlists);
 
+        }
+        public IActionResult Add(int? id)
+        {
+           
+            var playlists = _context.Playlists.Where(p => p.User.UserName == User.Identity.Name).ToList();
+            ViewBag.Playlist = new SelectList(playlists, "playListID", "name");
+            Album album = _context.Albums.Where(a => a.AlbumID == id).Single();
+   
+            return View(album);
+        }
+
+        [HttpPost]
+        public IActionResult Add(int AlbumID, int PlayListID)
+        {
+           // var playlist = _context.Playlists.SingleOrDefault(p => p.playListID == PlayListID);
+            PlaylistExtension playListAlbums = new PlaylistExtension { albumID = AlbumID, playlistID = PlayListID };
+
+                _context.Add(playListAlbums);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
         }
 
         public IActionResult Create()

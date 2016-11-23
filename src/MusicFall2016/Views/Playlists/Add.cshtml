@@ -1,0 +1,16 @@
+﻿@model MusicFall2016.Models.Album
+
+@{
+    ViewData["Title"] = "Select playlist:";
+}
+@*<h2>Select playlist for @Model.Title</h2><br />*@
+
+<form asp-action="Add" method="post">
+    <input type="hidden" asp-for="AlbumID" />
+    <p><select asp-items="ViewBag.Playlist" name="PlayListID"></select></p>
+    <input type="submit" value="Add playlist">
+</form>
+
+<form action="\Playlists\Index">
+    <button>Go back</button>
+</form>

@@ -28,8 +28,8 @@
             <td>@artist.Bio</td>
 
             <td>
-                <a class="btn btn-sm btn-default" asp-route-id="@artist.ArtistID">Edit</a>
-                <a class="btn btn-sm btn-default" asp-route-id="@artist.ArtistID">Details</a>
+                <a class="btn btn-sm btn-default" asp-action="Update" asp-route-id="@artist.ArtistID">Edit</a>
+                <a class="btn btn-sm btn-default" asp-action="Retrieve" asp-route-id="@artist.ArtistID">Details</a>
 
             </td>
         </tr>
